@@ -3,9 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { appName } from "../../data/site";
 import { getLatestRelease } from "../../lib/releases";
 import { buildAbsoluteUrl } from "../../lib/seo";
-import downloadPagePng from "../assets/download-page.png";
-import setupFilePng from "../assets/the-setup-file.png";
-import wizardPng from "../assets/wizard.png";
+import downloadPagePng from "../../assets/download-page.png";
+import theSetupFilePng from "../../assets/the-setup-file.png";
+import wizardPng from "../../assets/wizard.png";
 
 const latestRelease = await getLatestRelease("ja");
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
@@ -107,7 +107,7 @@ const structuredData = {
         <div class="step-image-placeholder">
           <img
             class="step-image"
-            src={setupFilePng.src}
+            src={theSetupFilePng.src}
             alt="セットアップファイル実行画面のスクリーンショット"
             loading="lazy"
           />
