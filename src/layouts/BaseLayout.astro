@@ -460,6 +460,111 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
     word-break: break-all;
   }
 
+  .changelog-title {
+    margin-bottom: 1.4rem;
+  }
+
+  .changelog-list {
+    display: grid;
+    gap: 1.15rem;
+    padding-bottom: 3rem;
+  }
+
+  .changelog-entry {
+    border-radius: 10px;
+    padding: 1.35rem 1.45rem;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .changelog-version {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .changelog-date {
+    font-size: 0.92rem;
+  }
+
+  .changelog-content {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .changelog-content h3,
+  .changelog-content h4 {
+    margin-top: 0.35rem;
+  }
+
+  .changelog-content p,
+  .changelog-content li {
+    color: var(--text-soft);
+  }
+
+  .changelog-content ul,
+  .changelog-content ol {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .contact-title {
+    margin-bottom: 1.4rem;
+  }
+
+  .contact-wrap {
+    padding-bottom: 3rem;
+  }
+
+  .contact-card {
+    max-width: 760px;
+    padding: 1.35rem 1.45rem;
+    border-radius: 10px;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .contact-heading {
+    margin: 0;
+    font-size: 1.22rem;
+  }
+
+  .contact-note {
+    font-size: 0.96rem;
+  }
+
+  .contact-list {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .contact-row {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: baseline;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .contact-row dt {
+    color: var(--text-soft);
+    font-size: 0.94rem;
+  }
+
+  .contact-row dd {
+    margin: 0;
+  }
+
+  .contact-row a {
+    color: inherit;
+    text-underline-offset: 2px;
+    word-break: break-all;
+  }
+
   @media (max-width: 720px) {
     .download-section {
       padding: 1.75rem;
@@ -471,6 +576,28 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
     }
 
     .download-meta-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+
+    .changelog-list {
+      gap: 0.9rem;
+      padding-bottom: 2.2rem;
+    }
+
+    .changelog-entry {
+      padding: 1.1rem;
+    }
+
+    .contact-wrap {
+      padding-bottom: 2.2rem;
+    }
+
+    .contact-card {
+      padding: 1.1rem;
+    }
+
+    .contact-row {
       grid-template-columns: 1fr;
       gap: 0.25rem;
     }

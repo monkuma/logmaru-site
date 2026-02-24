@@ -4,11 +4,20 @@ import { contactEmail, githubIssues } from "../../data/site";
 ---
 
 <BaseLayout locale="ja" title="LogMaru | お問い合わせ">
-  <h1 class="page-title">お問い合わせ</h1>
-  <section class="section">
-    <p>
-      メール: <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-    </p>
+  <h1 class="page-title contact-title">お問い合わせ</h1>
+  <section class="contact-wrap" aria-label="お問い合わせ方法">
+    <article class="contact-card card">
+      <h2 class="contact-heading">ご連絡方法</h2>
+      <p class="contact-note muted">
+        ご質問・不具合報告・ご要望など、お気軽にお知らせください。
+      </p>
+      <dl class="contact-list">
+        <div class="contact-row">
+          <dt>メール</dt>
+          <dd><a href={`mailto:${contactEmail}`}>{contactEmail}</a></dd>
+        </div>
 
+      </dl>
+    </article>
   </section>
 </BaseLayout>

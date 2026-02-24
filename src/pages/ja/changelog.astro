@@ -20,12 +20,16 @@ const entries = await Promise.all(
 ---
 
 <BaseLayout locale="ja" title="LogMaru | 更新履歴">
-  <h1 class="page-title">更新履歴</h1>
-  {entries.map(({ entry, Content, date }) => (
-    <article class="section card">
-      <h2>{entry.data.version}</h2>
-      <p class="muted">{date}</p>
-      <Content />
-    </article>
-  ))}
+  <h1 class="page-title changelog-title">更新履歴</h1>
+  <section class="changelog-list" aria-label="更新履歴">
+    {entries.map(({ entry, Content, date }) => (
+      <article class="changelog-entry card">
+        <h2 class="changelog-version">{entry.data.version}</h2>
+        <p class="changelog-date muted">{date}</p>
+        <div class="changelog-content">
+          <Content />
+        </div>
+      </article>
+    ))}
+  </section>
 </BaseLayout>
