@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { contactEmail, githubIssues } from "../data/site";
+---
+
+<BaseLayout locale="en" title="LogMaru | Contact">
+  <h1 class="page-title">Contact</h1>
+  <section class="section">
+    <p>
+      Email: <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+    </p>
+
+  </section>
+</BaseLayout>

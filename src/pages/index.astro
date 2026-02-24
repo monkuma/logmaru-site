@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { appName } from "../data/site";
+import { getLatestRelease } from "../lib/releases";
+import { buildAbsoluteUrl } from "../lib/seo";
+
+const latestRelease = await getLatestRelease("en");
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
+
+if (!siteUrl) {
+  throw new Error("PUBLIC_SITE_URL must be configured.");
+}
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: appName,
+  url: buildAbsoluteUrl(siteUrl, "/"),
+  inLanguage: "en"
+};
+---
+
+<BaseLayout
+  locale="en"
+  title={`${appName} | Home`}
+  structuredData={structuredData}
+>
+  <section class="section hero">
+    <p class="hero-logo">{appName}</p>
+    <h1 class="hero-title">
+      <span>Local-First Time Logging</span>
+      <span>for Windows</span>
+    </h1>
+    <p>
+      LogMaru automatically records your active windows, logs app names and
+      window titles, groups records by category, and shows how much time you
+      spent.
+    </p>
+    <a class="button" href="/download">
+      <svg class="windows-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M2.5 3.6 10.9 2.4v8.4H2.5V3.6Zm9.6-1.4L21.5 1v9.8h-9.4V2.2ZM2.5 12.2h8.4v8.4L2.5 19.4v-7.2Zm9.6 0h9.4V23l-9.4-1.2v-9.6Z"
+        />
+      </svg>
+      <span>Download for Windows</span>
+    </a>
+    <p class="muted">Latest: {latestRelease.version}</p>
+  </section>
+
+  <section class="section screenshot-wrap">
+    <div class="screenshot-frame" role="img" aria-label="LogMaru app screenshot">
+      <p>Screenshot preview area</p>
+    </div>
+  </section>
+
+  <section class="section features-section">
+    <h2 class="features-title">Features</h2>
+    <ul class="features-list">
+      <li class="feature">
+        <h3>Local-first storage</h3>
+        <p>All records remain on your own device.</p>
+      </li>
+      <li class="feature">
+        <h3>Categorized logging</h3>
+        <p>Organize work logs into clear categories.</p>
+      </li>
+      <li class="feature">
+        <h3>Clear activity history</h3>
+        <p>Review your timeline in a calm, readable format.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section simple-steps">
+    <h2>インストール方法 / Installation</h2>
+    <ol class="step-list">
+      <li class="step-row">
+        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-meta">
+          <p class="step-number">Step 1</p>
+          <h3>Download the installer</h3>
+          <p>Download the latest version from the official site.</p>
+        </div>
+      </li>
+      <li class="step-row">
+        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-meta">
+          <p class="step-number">Step 2</p>
+          <h3>Run the setup file</h3>
+          <p>Double-click the installer and start the setup process.</p>
+        </div>
+      </li>
+      <li class="step-row">
+        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-meta">
+          <p class="step-number">Step 3</p>
+          <h3>Follow the setup wizard</h3>
+          <p>
+            Complete the installation by following the on-screen instructions.
+          </p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section simple-steps">
+    <h2>How to Use / 使い方</h2>
+    <ol class="step-list">
+      <li class="step-row">
+        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-meta">
+          <p class="step-number">Step 1</p>
+          <h3>Record activity automatically</h3>
+          <p>LogMaru automatically records your active windows.</p>
+        </div>
+      </li>
+      <li class="step-row">
+        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-meta">
+          <p class="step-number">Step 2</p>
+          <h3>Assign categories</h3>
+          <p>Group your activities into categories.</p>
+        </div>
+      </li>
+      <li class="step-row">
+        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-meta">
+          <p class="step-number">Step 3</p>
+          <h3>Review your timeline</h3>
+          <p>Check how much time you spent on each task.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+</BaseLayout>

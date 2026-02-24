@@ -1,0 +1,53 @@
+---
+import type { Locale } from "../data/site";
+import { footerLabels } from "../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const labels = footerLabels[locale];
+
+const prefix = locale === "en" ? "" : `/${locale}`;
+---
+
+<footer class="site-footer">
+  <nav aria-label="Footer Navigation">
+    <ul>
+      <li><a href={`${prefix}/`}>{labels.home}</a></li>
+      <li><a href={`${prefix}/download`}>{labels.download}</a></li>
+      <li><a href={`${prefix}/changelog`}>{labels.changelog}</a></li>
+      <li><a href={`${prefix}/privacy`}>{labels.privacy}</a></li>
+      <li><a href={`${prefix}/terms`}>{labels.terms}</a></li>
+      <li><a href={`${prefix}/contact`}>{labels.contact}</a></li>
+    </ul>
+  </nav>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding: 1.5rem 0 2.2rem;
+  }
+
+  .site-footer ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.97rem;
+  }
+
+  .site-footer a:hover {
+    text-decoration: underline;
+  }
+</style>

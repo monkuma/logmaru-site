@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const changelog = (await getCollection("changelog"))
+  .filter((entry) => entry.data.lang === "en")
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const entries = await Promise.all(
+  changelog.map(async (entry) => {
+    const { Content } = await render(entry);
+    const date = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    }).format(entry.data.date);
+    return { entry, Content, date };
+  })
+);
+---
+
+<BaseLayout locale="en" title="LogMaru | Changelog">
+  <h1 class="page-title">Changelog</h1>
+  {entries.map(({ entry, Content, date }) => (
+    <article class="section card">
+      <h2>{entry.data.version}</h2>
+      <p class="muted">{date}</p>
+      <Content />
+    </article>
+  ))}
+</BaseLayout>
