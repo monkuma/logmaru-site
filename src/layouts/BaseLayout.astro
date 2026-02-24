@@ -231,6 +231,52 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
     font-size: 0.95rem;
   }
 
+  .hero-split {
+    text-align: left;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(260px, 1fr);
+    gap: 2.25rem;
+    align-items: center;
+  }
+
+  .hero-split .hero-copy {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .hero-split .hero-logo {
+    margin-bottom: 0;
+  }
+
+  .hero-split .hero-title {
+    justify-items: start;
+  }
+
+  .hero-split h2 {
+    font-size: clamp(1.12rem, 2.1vw, 1.28rem);
+    line-height: 1.45;
+  }
+
+  .hero-split p {
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-split .hero-action {
+    justify-self: end;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fffaf2;
+    padding: 1.25rem;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .hero-split .button,
+  .hero-split .muted {
+    margin-top: 0;
+  }
+
   .screenshot-wrap {
     text-align: center;
     padding-top: 1.8rem;
@@ -315,6 +361,14 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
     font-size: 0.92rem;
   }
 
+  .step-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+
   .step-meta {
     display: grid;
     gap: 0.5rem;
@@ -329,6 +383,97 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
     font-size: 1.1rem;
     margin: 0;
     font-weight: 600;
+  }
+
+  .download-section {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fffaf2;
+    padding: 2.4rem;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .download-heading {
+    margin: 0;
+  }
+
+  .download-version {
+    font-size: 1.1rem;
+    margin-top: 0.1rem;
+  }
+
+  .download-cta {
+    margin-top: 0.35rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .download-button {
+    min-width: 220px;
+    justify-content: center;
+  }
+
+  .download-meta {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .download-meta-row {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: baseline;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .download-meta-row dt {
+    color: var(--text-soft);
+    font-size: 0.94rem;
+  }
+
+  .download-meta-row dd {
+    margin: 0;
+  }
+
+  .download-meta code {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: 0.87rem;
+    background: rgba(51, 49, 47, 0.08);
+    padding: 0.2rem 0.38rem;
+    border-radius: 4px;
+  }
+
+  .download-releases {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+    margin-top: 0.2rem;
+  }
+
+  .download-releases a {
+    color: inherit;
+    text-underline-offset: 2px;
+    word-break: break-all;
+  }
+
+  @media (max-width: 720px) {
+    .download-section {
+      padding: 1.75rem;
+    }
+
+    .download-button {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .download-meta-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
   }
 
   .step-meta p {
@@ -352,5 +497,17 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
       grid-template-columns: 1fr;
       gap: 1rem;
     }
+
+    .hero-split {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .hero-split .hero-action {
+      justify-self: start;
+      width: 100%;
+      max-width: 360px;
+    }
   }
+
 </style>

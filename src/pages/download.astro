@@ -38,11 +38,11 @@ const structuredData = {
 >
   <h1 class="page-title">Download</h1>
 
-  <section class="section">
-    <h2>Latest Version</h2>
-    <p><strong>{latestRelease.version}</strong></p>
-    <p>
-      <a class="button" href={downloadUrl}>
+  <section class="download-section">
+    <h2 class="download-heading">Latest Version</h2>
+    <p class="download-version"><strong>{latestRelease.version}</strong></p>
+    <p class="download-cta">
+      <a class="button download-button" href={downloadUrl}>
         <svg class="windows-icon" viewBox="0 0 24 24" aria-hidden="true">
           <path
             d="M2.5 3.6 10.9 2.4v8.4H2.5V3.6Zm9.6-1.4L21.5 1v9.8h-9.4V2.2ZM2.5 12.2h8.4v8.4L2.5 19.4v-7.2Zm9.6 0h9.4V23l-9.4-1.2v-9.6Z"
@@ -51,14 +51,25 @@ const structuredData = {
         <span>Download for Windows</span>
       </a>
     </p>
-    <p>File size: {latestRelease.fileSize}</p>
-    <p>Release date: {releaseDate}</p>
-    <p>
+    <dl class="download-meta">
+      <div class="download-meta-row">
+        <dt>File size</dt>
+        <dd>{latestRelease.fileSize}</dd>
+      </div>
+      <div class="download-meta-row">
+        <dt>Release date</dt>
+        <dd>{releaseDate}</dd>
+      </div>
+      <div class="download-meta-row">
+        <dt>SHA256</dt>
+        <dd><code>{latestRelease.sha256}</code></dd>
+      </div>
+    </dl>
+    <p class="download-releases">
       GitHub Releases:
       <a href={githubReleases} target="_blank" rel="noreferrer">
         {githubReleases}
       </a>
     </p>
-    <p>SHA256: <code>{latestRelease.sha256}</code></p>
   </section>
 </BaseLayout>

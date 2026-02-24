@@ -3,6 +3,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { appName } from "../../data/site";
 import { getLatestRelease } from "../../lib/releases";
 import { buildAbsoluteUrl } from "../../lib/seo";
+import downloadsPagePng from "../../assets/downloads-page.png";
+import runSetupFilePng from "../../assets/run-the-setup-file.png";
+import setupWizardPng from "../../assets/setup-wizard.png";
 
 const latestRelease = await getLatestRelease("ja");
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
@@ -16,34 +19,50 @@ const structuredData = {
   "@type": "WebSite",
   name: appName,
   url: buildAbsoluteUrl(siteUrl, "/ja/"),
-  inLanguage: "ja"
+  inLanguage: "ja",
 };
 ---
 
-<BaseLayout locale="ja" title={`${appName} | ホーム`} structuredData={structuredData}>
-  <section class="section hero">
-    <p class="hero-logo">{appName}</p>
-    <h1 class="hero-title">
-      <span>PCで使ったアプリと時間を</span>
-      <span>自動で記録</span>
-    </h1>
-    <p>
-      LogMaru はアクティブなウィンドウを自動で記録し、アプリ名とタイトルを保存します。
-      記録はカテゴリごとに分けて管理でき、作業ごとの使用時間を確認できます。
-    </p>
-    <a class="button" href="/ja/download">
-      <svg class="windows-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M2.5 3.6 10.9 2.4v8.4H2.5V3.6Zm9.6-1.4L21.5 1v9.8h-9.4V2.2ZM2.5 12.2h8.4v8.4L2.5 19.4v-7.2Zm9.6 0h9.4V23l-9.4-1.2v-9.6Z"
-        />
-      </svg>
-      <span>Windows版をダウンロード</span>
-    </a>
-    <p class="muted">最新: {latestRelease.version}</p>
+<BaseLayout
+  locale="ja"
+  title={`${appName} | ホーム`}
+  structuredData={structuredData}
+>
+  <section class="section hero hero-split">
+    <div class="hero-copy">
+      <p class="hero-logo">{appName}</p>
+      <h1 class="hero-title">
+        <span>今日、何してたっけ？</span>
+      </h1>
+      <h2>
+        仕事終わりに思い出せない。会議で聞かれて詰まる。日報が空白になる。
+      </h2>
+      <h2>LogMaruは、あなたの作業の記憶を自動で記録します。</h2>
+      <p>
+        LogMaru
+        はアクティブなウィンドウを自動で記録し、アプリ名とタイトルを保存します。
+        記録はカテゴリごとに分けて管理でき、作業ごとの使用時間を確認できます。
+      </p>
+    </div>
+    <div class="hero-action">
+      <a class="button" href="/ja/download">
+        <svg class="windows-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M2.5 3.6 10.9 2.4v8.4H2.5V3.6Zm9.6-1.4L21.5 1v9.8h-9.4V2.2ZM2.5 12.2h8.4v8.4L2.5 19.4v-7.2Zm9.6 0h9.4V23l-9.4-1.2v-9.6Z"
+          ></path>
+        </svg>
+        <span>Windows版をダウンロード</span>
+      </a>
+      <p class="muted">最新: {latestRelease.version}</p>
+    </div>
   </section>
 
   <section class="section screenshot-wrap">
-    <div class="screenshot-frame" role="img" aria-label="LogMaru アプリのスクリーンショット">
+    <div
+      class="screenshot-frame"
+      role="img"
+      aria-label="LogMaru アプリのスクリーンショット"
+    >
       <p>スクリーンショット表示エリア</p>
     </div>
   </section>
@@ -70,29 +89,48 @@ const structuredData = {
     <h2>インストール方法 / Installation</h2>
     <ol class="step-list">
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={downloadsPagePng.src}
+            alt="ダウンロードページのスクリーンショット"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 1</p>
-          <h3>Download the installer</h3>
-          <p>Download the latest version from the official site.</p>
+          <h3>インストーラーをダウンロード</h3>
+          <p>公式サイトから最新バージョンを取得します。</p>
         </div>
       </li>
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={runSetupFilePng.src}
+            alt="セットアップファイル実行画面のスクリーンショット"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 2</p>
-          <h3>Run the setup file</h3>
-          <p>Double-click the installer and start the setup process.</p>
+          <h3>セットアップファイルを実行</h3>
+          <p>インストーラーをダブルクリックしてセットアップを開始します。</p>
         </div>
       </li>
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={setupWizardPng.src}
+            alt="セットアップウィザードのスクリーンショット"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 3</p>
-          <h3>Follow the setup wizard</h3>
-          <p>
-            Complete the installation by following the on-screen instructions.
-          </p>
+          <h3>ウィザードに沿って完了</h3>
+          <p>画面の案内に従ってインストールを完了します。</p>
         </div>
       </li>
     </ol>
@@ -105,24 +143,24 @@ const structuredData = {
         <div class="step-image-placeholder">Image Placeholder</div>
         <div class="step-meta">
           <p class="step-number">Step 1</p>
-          <h3>Record activity automatically</h3>
-          <p>LogMaru automatically records your active windows.</p>
+          <h3>作業を自動で記録</h3>
+          <p>アクティブなウィンドウを自動で記録します。</p>
         </div>
       </li>
       <li class="step-row">
         <div class="step-image-placeholder">Image Placeholder</div>
         <div class="step-meta">
           <p class="step-number">Step 2</p>
-          <h3>Assign categories</h3>
-          <p>Group your activities into categories.</p>
+          <h3>カテゴリを割り当て</h3>
+          <p>記録した作業をカテゴリ別に整理します。</p>
         </div>
       </li>
       <li class="step-row">
         <div class="step-image-placeholder">Image Placeholder</div>
         <div class="step-meta">
           <p class="step-number">Step 3</p>
-          <h3>Review your timeline</h3>
-          <p>Check how much time you spent on each task.</p>
+          <h3>タイムラインを確認</h3>
+          <p>作業ごとの時間配分を振り返れます。</p>
         </div>
       </li>
     </ol>
