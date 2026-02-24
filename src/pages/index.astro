@@ -3,9 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { appName } from "../data/site";
 import { getLatestRelease } from "../lib/releases";
 import { buildAbsoluteUrl } from "../lib/seo";
-import downloadsPagePng from "../assets/downloads-page.png";
-import runSetupFilePng from "../assets/run-the-setup-file.png";
-import setupWizardPng from "../assets/setup-wizard.png";
+import downloadPagePng from "../assets/download-page.png";
+import setupFilePng from "../assets/the-setup-file.png";
+import wizardPng from "../assets/wizard.png";
 
 const latestRelease = await getLatestRelease("en");
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
@@ -85,7 +85,7 @@ const structuredData = {
         <div class="step-image-placeholder">
           <img
             class="step-image"
-            src={downloadsPagePng.src}
+            src={downloadPagePng.src}
             alt="Download page screenshot"
             loading="lazy"
           />
@@ -100,7 +100,7 @@ const structuredData = {
         <div class="step-image-placeholder">
           <img
             class="step-image"
-            src={runSetupFilePng.src}
+            src={setupFilePng.src}
             alt="Run the setup file screenshot"
             loading="lazy"
           />
@@ -115,7 +115,7 @@ const structuredData = {
         <div class="step-image-placeholder">
           <img
             class="step-image"
-            src={setupWizardPng.src}
+            src={wizardPng.src}
             alt="Setup wizard screenshot"
             loading="lazy"
           />
