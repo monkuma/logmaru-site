@@ -1,8 +1,8 @@
 import type { Locale } from "../data/site";
 
 export const defaultDescriptions: Record<Locale, string> = {
-  en: "LogMaru is a local-first time logging application for Windows. Categorize your work, visualize your activity history, and stay in control of your data.",
-  ja: "LogMaru は、Windows向けのローカル完結型時間ログアプリです。作業をカテゴリで整理し、活動履歴を見える化し、データを自分で管理できます。"
+  en: "LogMaru is a desktop app for Windows that automatically records your activity and shows where your time went. Your data stays on your PC.",
+  ja: "LogMaruは、作業を自動で記録し、時間の使い方を見える化するWindows向けデスクトップアプリです。データはすべてPC内に保存されます。"
 };
 
 function ensureTrailingSlash(pathname: string): string {
