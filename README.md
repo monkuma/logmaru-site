@@ -25,36 +25,6 @@ The desktop application is maintained separately.
 
 ---
 
-## Development
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start development server:
-
-```bash
-npm run dev
-```
-
-Build for production:
-
-```bash
-npm run build
-```
-
----
-
-## Deployment
-
-The site is deployed automatically via Cloudflare Pages.
-
-Pushing to the `main` branch triggers a production build.
-
----
-
 ## Internationalization
 
 This website is planned to support both English and Japanese.
