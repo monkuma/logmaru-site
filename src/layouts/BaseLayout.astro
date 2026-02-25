@@ -289,11 +289,27 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
     border: 1px solid rgba(51, 49, 47, 0.15);
     border-radius: 8px;
     min-height: 380px;
+    padding: 1.5rem;
     display: grid;
     place-items: center;
     color: var(--text-soft);
     background: #fff9ef;
     box-shadow: 0 3px 8px rgba(51, 49, 47, 0.04);
+  }
+
+  .screenshot-image {
+    width: 95%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .screenshot-stack {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
   }
 
   .features-title,

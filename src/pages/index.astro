@@ -6,6 +6,8 @@ import { buildAbsoluteUrl } from "../lib/seo";
 import downloadPagePng from "../assets/download-page.png";
 import setupFilePng from "../assets/the-setup-file.png";
 import wizardPng from "../assets/wizard.png";
+import enLogsLightHeroPng from "../assets/en-logs-light.png";
+import enCategoriesLightPng from "../assets/en-categories-light.png";
 
 const latestRelease = await getLatestRelease("en");
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
@@ -54,9 +56,22 @@ const structuredData = {
     <div
       class="screenshot-frame"
       role="img"
-      aria-label="LogMaru app screenshot"
+      aria-label="LogMaru app screenshots"
     >
-      <p>Screenshot preview area</p>
+      <div class="screenshot-stack">
+        <img
+          class="screenshot-image"
+          src={enLogsLightHeroPng.src}
+          alt="LogMaru logs screen"
+          loading="lazy"
+        />
+        <img
+          class="screenshot-image"
+          src={enCategoriesLightPng.src}
+          alt="LogMaru categories screen"
+          loading="lazy"
+        />
+      </div>
     </div>
   </section>
 
@@ -93,7 +108,7 @@ const structuredData = {
         <div class="step-meta">
           <p class="step-number">Step 1</p>
           <h3>Download the installer</h3>
-          <p>Download the latest version from the official site.</p>
+          <p><a href="/download">Download the latest version from the official site.</a></p>
         </div>
       </li>
       <li class="step-row">

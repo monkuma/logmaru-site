@@ -6,6 +6,8 @@ import { buildAbsoluteUrl } from "../../lib/seo";
 import downloadPagePng from "../../assets/download-page.png";
 import theSetupFilePng from "../../assets/the-setup-file.png";
 import wizardPng from "../../assets/wizard.png";
+import jaLogsLightPng from "../../assets/ja-logs-light.png";
+import jsCategoriesLightPng from "../../assets/js-categories-light.png";
 
 const latestRelease = await getLatestRelease("ja");
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
@@ -40,7 +42,7 @@ const structuredData = {
       <h2>LogMaruは、あなたの作業の記憶を自動で記録します。</h2>
       <p>
         LogMaru
-        はアクティブなウィンドウを自動で記録し、アプリ名とタイトルを保存します。
+        はアクティブなウィンドウを自動で記録し、作業ログを保存します。
         記録はカテゴリごとに分けて管理でき、作業ごとの使用時間を確認できます。
       </p>
     </div>
@@ -63,7 +65,20 @@ const structuredData = {
       role="img"
       aria-label="LogMaru アプリのスクリーンショット"
     >
-      <p>スクリーンショット表示エリア</p>
+      <div class="screenshot-stack">
+        <img
+          class="screenshot-image"
+          src={jaLogsLightPng.src}
+          alt="LogMaru ログ画面"
+          loading="lazy"
+        />
+        <img
+          class="screenshot-image"
+          src={jsCategoriesLightPng.src}
+          alt="LogMaru カテゴリ画面"
+          loading="lazy"
+        />
+      </div>
     </div>
   </section>
 
@@ -100,7 +115,7 @@ const structuredData = {
         <div class="step-meta">
           <p class="step-number">Step 1</p>
           <h3>インストーラーをダウンロード</h3>
-          <p>公式サイトから最新バージョンを取得します。</p>
+          <p><a href="/ja/download">ダウンロードページから最新バージョンを取得します。</a></p>
         </div>
       </li>
       <li class="step-row">
