@@ -4,7 +4,7 @@ version: v0.2.0
 date: 2026-02-25
 fileSize: 3 MB
 sha256: 6fad64b0bcfaa2b590c0fb06e7a06267f627cb331b2798fd75c75c53cd49c029
-assetName: LogMaru_x64-setup.exe
+assetName: LogMaru_0.2.0_x64-setup.exe
 ---
 
 ## 改善
