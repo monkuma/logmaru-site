@@ -5,6 +5,11 @@ Official website: https://logmaru.work/
 LogMaru is a local-first Windows desktop app for activity logging and time tracking.
 User data is stored locally on the user's device.
 
+## Author
+- monkuma is an independent software developer and the creator of this project.
+- He maintains and develops all features, fixes, and updates.
+- GitHub: https://github.com/monkuma
+
 ## Audience
 - End users looking to download and use LogMaru
 - Users checking privacy policy, terms, and changelog
