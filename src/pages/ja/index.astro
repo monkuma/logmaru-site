@@ -8,6 +8,8 @@ import theSetupFilePng from "../../assets/the-setup-file.png";
 import wizardPng from "../../assets/wizard.png";
 import jaLogsLightPng from "../../assets/ja-logs-light.png";
 import jsCategoriesLightPng from "../../assets/js-categories-light.png";
+import jaAddCategoryPng from "../../assets/ja-add-category.png";
+import jaCheckCategorySummaryPng from "../../assets/ja-check-cat-summary.png";
 
 const latestRelease = await getLatestRelease("ja");
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
@@ -112,7 +114,7 @@ const structuredData = {
   </section>
 
   <section class="section simple-steps">
-    <h2>インストール方法 / Installation</h2>
+    <h2>インストール方法</h2>
     <ol class="step-list">
       <li class="step-row">
         <div class="step-image-placeholder">
@@ -171,10 +173,17 @@ const structuredData = {
   </section>
 
   <section class="section simple-steps">
-    <h2>使い方 / How to Use</h2>
+    <h2>使い方</h2>
     <ol class="step-list">
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={jaLogsLightPng.src}
+            alt="作業ログ画面"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 1</p>
           <h3>作業を自動で記録</h3>
@@ -182,7 +191,14 @@ const structuredData = {
         </div>
       </li>
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={jaAddCategoryPng.src}
+            alt="カテゴリ追加画面"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 2</p>
           <h3>カテゴリを割り当て</h3>
@@ -190,7 +206,14 @@ const structuredData = {
         </div>
       </li>
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={jaCheckCategorySummaryPng.src}
+            alt="カテゴリ集計画面"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 3</p>
           <h3>タイムラインを確認</h3>

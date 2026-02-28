@@ -8,6 +8,8 @@ import setupFilePng from "../assets/the-setup-file.png";
 import wizardPng from "../assets/wizard.png";
 import enLogsLightHeroPng from "../assets/en-logs-light.png";
 import enCategoriesLightPng from "../assets/en-categories-light.png";
+import enAddCategoryPng from "../assets/en-add-category.png";
+import enCheckCategorySummaryPng from "../assets/en-check-cat-summary.png";
 
 const latestRelease = await getLatestRelease("en");
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
@@ -105,7 +107,7 @@ const structuredData = {
   </section>
 
   <section class="section simple-steps">
-    <h2>インストール方法 / Installation</h2>
+    <h2>Installation</h2>
     <ol class="step-list">
       <li class="step-row">
         <div class="step-image-placeholder">
@@ -165,10 +167,17 @@ const structuredData = {
   </section>
 
   <section class="section simple-steps">
-    <h2>How to Use / 使い方</h2>
+    <h2>How to Use</h2>
     <ol class="step-list">
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={enLogsLightHeroPng.src}
+            alt="Activity log screen"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 1</p>
           <h3>Record activity automatically</h3>
@@ -176,7 +185,14 @@ const structuredData = {
         </div>
       </li>
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={enAddCategoryPng.src}
+            alt="Assign categories screen"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 2</p>
           <h3>Assign categories</h3>
@@ -184,7 +200,14 @@ const structuredData = {
         </div>
       </li>
       <li class="step-row">
-        <div class="step-image-placeholder">Image Placeholder</div>
+        <div class="step-image-placeholder">
+          <img
+            class="step-image"
+            src={enCheckCategorySummaryPng.src}
+            alt="Category summary screen"
+            loading="lazy"
+          />
+        </div>
         <div class="step-meta">
           <p class="step-number">Step 3</p>
           <h3>Review your timeline</h3>
