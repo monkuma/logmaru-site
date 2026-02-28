@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   appName,
-  authorBioEn,
   authorGithub,
   authorName,
   contactEmail,
@@ -57,12 +56,6 @@ const structuredData = {
       <p class="contact-note muted">
         Questions, bug reports, and feedback are welcome.
       </p>
-      <div class="contact-author">
-        <h3>Author</h3>
-        <p>{authorBioEn}</p>
-        <p>
-          GitHub: <a href={authorGithub} target="_blank" rel="noreferrer">{authorGithub}</a>
-        </p>
       </div>
       <dl class="contact-list">
         <div class="contact-row">
