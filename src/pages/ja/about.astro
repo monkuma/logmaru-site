@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+    appName,
+    authorBioJa,
+    authorGithub,
+    authorName,
+    githubRepo,
+} from "../../data/site";
+import { buildAbsoluteUrl } from "../../lib/seo";
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
+
+if (!siteUrl) {
+    throw new Error("PUBLIC_SITE_URL must be configured.");
+}
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: `${appName} | About`,
+    url: buildAbsoluteUrl(siteUrl, "/ja/about/"),
+    inLanguage: "ja",
+    mainEntity: {
+        "@type": "SoftwareApplication",
+        name: appName,
+        applicationCategory: "ProductivityApplication",
+        operatingSystem: "Windows",
+        creator: {
+            "@type": "Person",
+            name: authorName,
+            url: authorGithub,
+            sameAs: [authorGithub],
+        },
+    },
+};
+---
+
+<BaseLayout
+    locale="ja"
+    title={`${appName} | About`}
+    description={`${appName} の概要、ローカルファーストの方針、開発者情報を紹介します。`}
+    structuredData={structuredData}
+>
+    <section class="section">
+        <div class="hero">
+            <div class="hero-logo">About</div>
+
+            <div class="hero-title">
+                <span>作業ログを、</span>
+                <span>ローカルで安全に記録するために</span>
+            </div>
+
+            <p>
+                {appName} は Windows 向けの作業ログアプリです。 時間の使い方を、わかりやすく、そしてプライベートに可視化します。
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="page-title">{appName} とは？</h2>
+
+        <p class="muted">
+            {appName} はアクティブなウィンドウを自動で記録し、 1日の作業の流れを見やすく振り返れるようにします。
+        </p>
+
+        <p class="muted" style="margin-top: 1rem;">
+            最新の更新は
+            <a href="/ja/changelog">更新履歴</a>
+            で確認でき、最新版は
+            <a href="/ja/download">ダウンロードページ</a>
+            から取得できます。
+        </p>
+    </section>
+
+    <section class="section">
+        <h2 class="page-title">Author</h2>
+
+        <p class="muted" style="margin-bottom: 1.2rem;">
+            {authorBioJa}
+        </p>
+
+        <p class="muted">
+            GitHub:
+            <a href={authorGithub} target="_blank" rel="noreferrer">
+                {authorGithub}
+            </a>
+        </p>
+
+        <p class="muted" style="margin-top: 0.5rem;">
+            プロジェクト:
+            <a href={githubRepo} target="_blank" rel="noreferrer">
+                {githubRepo}
+            </a>
+        </p>
+    </section>
+</BaseLayout>

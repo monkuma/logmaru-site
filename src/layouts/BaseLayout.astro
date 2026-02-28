@@ -558,6 +558,21 @@ const ogLocaleAlternate = locale === "ja" ? "en_US" : "ja_JP";
     font-size: 0.96rem;
   }
 
+  .contact-author {
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.75rem 0;
+  }
+
+  .contact-author h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .contact-author p {
+    margin: 0;
+  }
+
   .contact-list {
     margin: 0;
     padding: 0;
@@ -603,6 +618,75 @@ const ogLocaleAlternate = locale === "ja" ? "en_US" : "ja_JP";
     display: block;
   }
 
+  .about-hero {
+    text-align: left;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fffaf2;
+    padding: 2rem;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .about-kicker {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
+  .about-hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 2.4rem);
+    line-height: 1.2;
+  }
+
+  .about-lead {
+    color: var(--text-soft);
+    max-width: 720px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1.25rem 0 3rem;
+  }
+
+  .about-card {
+    border-radius: 10px;
+    padding: 1.25rem 1.35rem;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .about-card h2 {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .about-card ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.35rem;
+    color: var(--text-soft);
+  }
+
+  .about-card p {
+    color: var(--text-soft);
+  }
+
+  .about-author {
+    grid-column: 1 / -1;
+  }
+
+  .about-card a {
+    color: inherit;
+    text-underline-offset: 2px;
+    word-break: break-all;
+  }
+
   @media (max-width: 720px) {
     .download-section {
       padding: 1.75rem;
@@ -635,6 +719,21 @@ const ogLocaleAlternate = locale === "ja" ? "en_US" : "ja_JP";
     .contact-form-embed {
       min-height: 720px;
     }
+
+    .about-hero {
+      padding: 1.35rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      padding-bottom: 2.2rem;
+    }
+
+    .about-card {
+      padding: 1.05rem;
+    }
+
     .contact-card {
       padding: 1.1rem;
     }

@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { appName, contactEmail, githubIssues } from "../../data/site";
+import {
+  appName,
+  authorBioJa,
+  authorGithub,
+  authorName,
+  contactEmail,
+  githubIssues
+} from "../../data/site";
 import { buildAbsoluteUrl } from "../../lib/seo";
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
@@ -20,7 +27,19 @@ const structuredData = {
     name: appName,
     email: contactEmail,
     url: buildAbsoluteUrl(siteUrl, "/ja/"),
-    sameAs: [githubIssues]
+    sameAs: [authorGithub, githubIssues],
+    founder: {
+      "@type": "Person",
+      name: authorName,
+      url: authorGithub,
+      sameAs: [authorGithub]
+    }
+  },
+  author: {
+    "@type": "Person",
+    name: authorName,
+    url: authorGithub,
+    sameAs: [authorGithub]
   }
 };
 ---
@@ -38,6 +57,13 @@ const structuredData = {
       <p class="contact-note muted">
         ご質問・不具合報告・ご要望など、お気軽にお知らせください。
       </p>
+      <div class="contact-author">
+        <h3>Author</h3>
+        <p>{authorBioJa}</p>
+        <p>
+          GitHub: <a href={authorGithub} target="_blank" rel="noreferrer">{authorGithub}</a>
+        </p>
+      </div>
       <dl class="contact-list">
         <div class="contact-row">
           <dt>メール</dt>

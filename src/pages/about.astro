@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+    appName,
+    authorBioEn,
+    authorGithub,
+    authorName,
+    githubRepo,
+} from "../data/site";
+import { buildAbsoluteUrl } from "../lib/seo";
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
+
+if (!siteUrl) {
+    throw new Error("PUBLIC_SITE_URL must be configured.");
+}
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: `${appName} | About`,
+    url: buildAbsoluteUrl(siteUrl, "/about/"),
+    inLanguage: "en",
+    mainEntity: {
+        "@type": "SoftwareApplication",
+        name: appName,
+        applicationCategory: "ProductivityApplication",
+        operatingSystem: "Windows",
+        creator: {
+            "@type": "Person",
+            name: authorName,
+            url: authorGithub,
+            sameAs: [authorGithub],
+        },
+    },
+};
+---
+
+<BaseLayout
+    locale="en"
+    title={`${appName} | About`}
+    description={`About ${appName}, its local-first approach, and project author information.`}
+    structuredData={structuredData}
+>
+    <!-- Hero -->
+    <section class="section">
+        <div class="hero">
+            <div class="hero-logo">About</div>
+
+            <div class="hero-title">
+                <span>Built for private,</span>
+                <span>local-first work logs</span>
+            </div>
+
+            <p>
+                {appName} is a Windows desktop app for activity logging and time tracking.
+                It helps you understand where your time actually goes — clearly and
+                privately.
+            </p>
+        </div>
+    </section>
+
+    <!-- What is -->
+    <section class="section">
+        <h2 class="page-title">What is {appName}?</h2>
+
+        <p class="muted">
+            {appName} automatically records your active windows and lets you review
+            your work timeline in a calm, readable interface.
+        </p>
+
+        <p class="muted" style="margin-top: 1rem;">
+            You can explore updates in the
+            <a href="/changelog">changelog</a>
+            and download the latest version from the
+            <a href="/download">download page</a>.
+        </p>
+    </section>
+
+    <!-- Author -->
+    <section class="section">
+        <h2 class="page-title">Author</h2>
+
+        <p class="muted" style="margin-bottom: 1.2rem;">
+            {authorBioEn}
+        </p>
+
+        <p class="muted">
+            GitHub:
+            <a href={authorGithub} target="_blank" rel="noreferrer">
+                {authorGithub}
+            </a>
+        </p>
+
+        <p class="muted" style="margin-top: 0.5rem;">
+            Repository:
+            <a href={githubRepo} target="_blank" rel="noreferrer">
+                {githubRepo}
+            </a>
+        </p>
+    </section>
+</BaseLayout>
