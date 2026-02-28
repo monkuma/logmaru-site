@@ -1,0 +1,32 @@
+# LogMaru
+
+Official website: https://logmaru.work/
+
+LogMaru is a local-first Windows desktop app for activity logging and time tracking.
+User data is stored locally on the user's device.
+
+## Audience
+- End users looking to download and use LogMaru
+- Users checking privacy policy, terms, and changelog
+
+## Preferred pages
+- Home (EN): https://logmaru.work/
+- Home (JA): https://logmaru.work/ja/
+- Download (EN): https://logmaru.work/download/
+- Download (JA): https://logmaru.work/ja/download/
+- Changelog (EN): https://logmaru.work/changelog/
+- Changelog (JA): https://logmaru.work/ja/changelog/
+- Contact (EN): https://logmaru.work/contact/
+- Contact (JA): https://logmaru.work/ja/contact/
+- Privacy (EN): https://logmaru.work/privacy/
+- Privacy (JA): https://logmaru.work/ja/privacy/
+- Terms (EN): https://logmaru.work/terms/
+- Terms (JA): https://logmaru.work/ja/terms/
+
+## Crawling/indexing references
+- Sitemap index: https://logmaru.work/sitemap-index.xml
+- Robots: https://logmaru.work/robots.txt
+
+## Contact
+- Email: support@logmaru.work
+- GitHub issues: https://github.com/monkuma/LogMaru-releases/issues
