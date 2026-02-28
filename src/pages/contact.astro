@@ -43,9 +43,27 @@ const structuredData = {
           <dt>Email</dt>
           <dd><a href={`mailto:${contactEmail}`}>{contactEmail}</a></dd>
         </div>
-
-        
+        <div class="contact-row">
+          <dt>GitHub Issues</dt>
+          <dd>
+            <a href={githubIssues} target="_blank" rel="noreferrer">
+              {githubIssues}
+            </a>
+          </dd>
+        </div>
       </dl>
+      <div class="contact-form-wrap">
+        <iframe
+          class="contact-form-embed"
+          src="https://docs.google.com/forms/d/e/1FAIpQLSdrJUCbsBLqXN6Wo7hn7HciMYpUEMXP00y4I395ChnihPmb1Q/viewform?embedded=true"
+          width="640"
+          height="781"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="LogMaru contact form"
+        >Loading…</iframe>
+      </div>
     </article>
   </section>
 </BaseLayout>
