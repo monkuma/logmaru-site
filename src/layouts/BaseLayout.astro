@@ -2,7 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import logoPng from "../assets/logo.png";
-import type { Locale } from "../data/site";
+import { appName, type Locale } from "../data/site";
 import {
   buildAbsoluteUrl,
   defaultDescriptions,
@@ -41,6 +41,8 @@ const jaUrl = buildAbsoluteUrl(siteUrl, getLocalizedPath("ja", normalizedPath));
 const enPath = getLocalizedPath("en", normalizedPath);
 const jaPath = getLocalizedPath("ja", normalizedPath);
 const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
+const ogLocale = locale === "ja" ? "ja_JP" : "en_US";
+const ogLocaleAlternate = locale === "ja" ? "en_US" : "ja_JP";
 ---
 
 <!doctype html>
@@ -55,6 +57,12 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
     <meta property="og:description" content={resolvedDescription} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={appName} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={resolvedDescription} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="ja" href={jaUrl} />
@@ -581,6 +589,20 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
     word-break: break-all;
   }
 
+  .contact-form-wrap {
+    margin-top: 0.9rem;
+  }
+
+  .contact-form-embed {
+    width: 100%;
+    max-width: 640px;
+    min-height: 781px;
+    border: 0;
+    border-radius: 8px;
+    background: #fff;
+    display: block;
+  }
+
   @media (max-width: 720px) {
     .download-section {
       padding: 1.75rem;
@@ -609,6 +631,10 @@ const jsonLd = structuredData ? JSON.stringify(structuredData) : null;
       padding-bottom: 2.2rem;
     }
 
+
+    .contact-form-embed {
+      min-height: 720px;
+    }
     .contact-card {
       padding: 1.1rem;
     }

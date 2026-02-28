@@ -19,7 +19,11 @@ const entries = await Promise.all(
 );
 ---
 
-<BaseLayout locale="ja" title="LogMaru | 更新履歴">
+<BaseLayout
+  locale="ja"
+  title="LogMaru | 更新履歴"
+  description="LogMaru のリリース情報、機能追加、修正内容をバージョンごとに確認できます。"
+>
   <h1 class="page-title changelog-title">更新履歴</h1>
   <section class="changelog-list" aria-label="更新履歴">
     {entries.map(({ entry, Content, date }) => (

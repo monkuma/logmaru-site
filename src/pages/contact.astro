@@ -1,9 +1,36 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { contactEmail, githubIssues } from "../data/site";
+import { appName, contactEmail, githubIssues } from "../data/site";
+import { buildAbsoluteUrl } from "../lib/seo";
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString();
+
+if (!siteUrl) {
+  throw new Error("PUBLIC_SITE_URL must be configured.");
+}
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: `${appName} Contact`,
+  url: buildAbsoluteUrl(siteUrl, "/contact/"),
+  inLanguage: "en",
+  mainEntity: {
+    "@type": "Organization",
+    name: appName,
+    email: contactEmail,
+    url: buildAbsoluteUrl(siteUrl, "/"),
+    sameAs: [githubIssues]
+  }
+};
 ---
 
-<BaseLayout locale="en" title="LogMaru | Contact">
+<BaseLayout
+  locale="en"
+  title="LogMaru | Contact"
+  description="Contact LogMaru support for questions, bug reports, and feedback."
+  structuredData={structuredData}
+>
   <h1 class="page-title contact-title">Contact</h1>
   <section class="contact-wrap" aria-label="Contact methods">
     <article class="contact-card card">
